@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>All Advocates</title>
+    </head>
+    <body>
+        <h1>All Advocate List</h1>
+        <% for(let advocate of advocates) { %>
+        <li>
+            <a href="/advocates/<%= advocate._id %>">
+                <%= advocate.name %>, (<%= advocate.location %>)
+            </a>
+        </li>
+        <% } %>
+    </body>
+</html>

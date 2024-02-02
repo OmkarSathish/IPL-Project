@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add New Advocate</title>
+    </head>
+    <body>
+        <h1>Add New Advocate Profile</h1>
+
+        <form action="/advocates" method="POST">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="advocate[name]" />
+                <label for="location">Location</label>
+                <input type="text" id="location" name="advocate[location]" />
+                <label for="speciality">Speciality</label>
+                <input
+                    type="text"
+                    id="speciality"
+                    name="advocate[speciality]"
+                />
+                <label for="experience">Experience</label>
+                <input
+                    type="text"
+                    id="experience"
+                    name="advocate[experience]"
+                />
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="advocate[email]" />
+                <button>Add Advocate</button>
+            </div>
+        </form>
+        <a href="/advocates/all">Back to Index</a>
+    </body>
+</html>

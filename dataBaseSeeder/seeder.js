@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { firstNames, lastNames, locations } = require("./generalResource");
 const lawSpecialties = require("./advocates");
-const Advocates = require("../models/advocateModel");
+const Advocate = require("../models/advocateModel");
 const establishDBConnection = require("../config/connectDB");
 
 establishDBConnection();
@@ -28,21 +28,24 @@ function generateRandomRating() {
 }
 
 async function generateRandomProfile() {
-    const name = `${randomPicker(firstNames)} ${randomPicker(lastNames)}`;
+    const fName = randomPicker(firstNames);
+    const lName = randomPicker(lastNames);
+    const name = `${fName} ${lName}`;
 
-    const isPresent = await Advocates.findOne({ name }).exec();
+    const isPresent = await Advocate.findOne({ name }).exec();
 
     if (!isPresent) {
-        const newAdvocateProfile = new Advocates({
+        const newAdvocateProfile = new Advocate({
             name: name,
             age: generateRandomAge(),
             experience: generateRandomExperience(),
+            email: `${fName.toLowerCase()}${lName.toLowerCase()}@gmail.com`,
             rating: generateRandomRating(),
             image: "https://img.freepik.com/free-photo/indian-businessman-with-his-white-car_496169-2889.jpg?size=626&ext=jpg&ga=GA1.1.1079212264.1698405975&semt=sph",
             speciality: `${randomPicker(lawSpecialties.lawSpecailities)}`,
             location: `${randomPicker(locations)}`,
         });
-
+        console.log(`Created: ${newAdvocateProfile.name}`);
         await newAdvocateProfile.save();
     }
 }
@@ -56,15 +59,14 @@ const randomPicker = (array) => {
 
 const seederFunction = async () => {
     try {
-        await Advocates.deleteMany({});
-        for (let i = 0; i < 1000; i++) {
+        await Advocate.deleteMany({});
+        for (let i = 0; i < 10; i++) {
             await generateRandomProfile();
         }
     } catch (error) {
         console.error("Error while seeding data:", error);
     } finally {
         console.log("Closing DataBase");
-        db.close();
     }
 };
 
