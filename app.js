@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
-const express = require("express");
 const ejs = require("ejs");
 const path = require("path");
+const ejsMate = require("ejs-mate");
+const express = require("express");
+const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const methodOverride = require("method-override");
 const Advocates = require("./models/advocateModel");
@@ -14,6 +15,8 @@ const port = process.env.PORT || 5001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 

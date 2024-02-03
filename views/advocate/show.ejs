@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Showing Advocate</title>
-    </head>
-    <body>
-        <a href="/advocates/all">Back to Index</a>
+<% layout('layouts/boilerplate.ejs') %>
+<div class="row">
+    <div class="col-6 offset-3">
+        <a class="btn btn-secondary" href="/advocates/all">Back to Index</a>
+
         <img src="<%= advocate.image %>" alt="Advocate Picture" />
         <h1><%= advocate.name %></h1>
         <p>Speaciality: <%= advocate.speciality %></p>
         <p>Location: <%= advocate.location %></p>
         <p>Rating: <%= advocate.rating %></p>
         <p>E-Mail: <%= advocate.email %></p>
-        <a href="/advocates/<%= advocate._id %>/edit">Edit Profile</a>
+        <a class="btn btn-primary" href="/advocates/<%= advocate._id %>/edit">Edit Profile</a>
         <form
             action="/advocates/<%= advocate._id %>?_method=DELETE"
             method="POST"
         >
-            <button>Delete Profile</button>
+            <button class="btn btn-danger">Delete Profile</button>
         </form>
-    </body>
-</html>
+    </div>
+</div>

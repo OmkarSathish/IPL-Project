@@ -1,18 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>All Advocates</title>
-    </head>
-    <body>
-        <h1>All Advocate List</h1>
-        <% for(let advocate of advocates) { %>
-        <li>
-            <a href="/advocates/<%= advocate._id %>">
-                <%= advocate.name %>, (<%= advocate.location %>)
-            </a>
-        </li>
-        <% } %>
-    </body>
-</html>
+<% layout('layouts/boilerplate.ejs') %>
+<h1>All Advocate List</h1>
+<div class="row">
+    <% for (let i = 0; i < advocates.length; i += 2) { %>
+    <div class="col-md-6">
+        <div class="mb-3 p-2" style="height: 525px">
+            <div class="row">
+                <% for (let j = i; j < i + 2 && j < advocates.length; j++) { %>
+                <div class="col-md-6">
+                    <img
+                        style="
+                            width: 100%;
+                            height: 300px;
+                            object-fit: contain;
+                            object-position: center;
+                        "
+                        class="img-fluid mx-auto"
+                        src="<%= advocates[j].image %>"
+                        alt="Advocate Profile Image"
+                    />
+
+                    <div class="d-flex flex-column justify-content-between p-2">
+                        <h5 class="card-title mt-2" style="height: max-content;"><%= advocates[j].name %></h5>
+                        <p class="card-text mt-1">
+                            Location: <%= advocates[j].location %> <br />
+                            Speciality: <%= advocates[j].speciality %> <br />
+                            Rating(s): <%= advocates[j].rating %>
+                        </p>
+                        <a
+                            class="btn btn-primary mt-auto"
+                            href="/advocates/<%= advocates[j]._id %>"
+                            >Check Profile</a
+                        >
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
