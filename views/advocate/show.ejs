@@ -1,20 +1,85 @@
 <% layout('layouts/boilerplate.ejs') %>
-<div class="row">
-    <div class="col-6 offset-3">
-        <a class="btn btn-secondary" href="/advocates/all">Back to Index</a>
-
+<h1 class="text-center">Viewing Profile</h1>
+<div
+    class="d-flex flex-column align-items-center justify-content-center gap-4 my-3"
+>
+    <div class="card" style="width: 18rem">
         <img src="<%= advocate.image %>" alt="Advocate Picture" />
-        <h1><%= advocate.name %></h1>
-        <p>Speaciality: <%= advocate.speciality %></p>
-        <p>Location: <%= advocate.location %></p>
-        <p>Rating: <%= advocate.rating %></p>
-        <p>E-Mail: <%= advocate.email %></p>
-        <a class="btn btn-primary" href="/advocates/<%= advocate._id %>/edit">Edit Profile</a>
-        <form
-            action="/advocates/<%= advocate._id %>?_method=DELETE"
-            method="POST"
+        <div class="card-body">
+            <h5 class="card-title text-center"><%= advocate.name %></h5>
+            <p>
+                <span class="text-muted">Speaciality: </span><%=
+                advocate.speciality %>
+            </p>
+            <p>
+                <span class="text-muted">Location: </span><%= advocate.location
+                %>
+            </p>
+            <p>
+                <span class="text-muted">Rating: </span><%= advocate.rating %>
+            </p>
+            <p>
+                <span class="text-muted">Experience: </span><%=
+                advocate.experience %>+ Years
+            </p>
+            <p><span class="text-muted">E-Mail: </span><%= advocate.email %></p>
+            <a
+                class="btn btn-primary w-100"
+                href="/advocates/<%= advocate._id %>/edit"
+                >Edit Profile</a
+            >
+            <form
+                action="/advocates/<%= advocate._id %>?_method=DELETE"
+                method="POST"
+            >
+                <button class="btn btn-danger mt-3 mx-auto w-100">
+                    Delete Profile
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <h1>Reviews</h1>
+    <ol class="list-group list-group-numbered w-50">
+        <li
+            class="list-group-item d-flex justify-content-between align-items-start"
         >
-            <button class="btn btn-danger">Delete Profile</button>
-        </form>
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Client 1</div>
+                "<i class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maiores quibusdam odit labore non in laborum pariatur earum
+                    molestias fuga possimus? </i
+                >"
+            </div>
+            <span class="badge bg-primary rounded-pill">Rated: 5</span>
+        </li>
+        <li
+            class="list-group-item d-flex justify-content-between align-items-start"
+        >
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Client 2</div>
+                "<i class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Cupiditate, assumenda? </i
+                    >"
+                </div>
+                <span class="badge bg-primary rounded-pill">Rated: 4</span>
+            </li>
+        <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+        >
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Client 3</div>
+                "<i class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Doloremque at quo, ex repellat tempora itaque! </i
+                >"
+            </div>
+            <span class="badge bg-primary round ed-pill">Rated: 4</span>
+        </li>
+    </ol>
+    <div class="container d-flex justify-content-center">
+        <a class="btn btn-dark" href="/advocates/all">Back</a>
     </div>
 </div>

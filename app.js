@@ -23,5 +23,5 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/advocates", require("./routes/advocateRoutes.js"));
 
 app.listen(3000, () => {
-    console.log(`Serving on http://localhost:${port}/advocates`);
+    console.log(`Serving on http://localhost:${port}/advocates/all`);
 });

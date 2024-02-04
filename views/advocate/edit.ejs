@@ -1,55 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Edit Profile</title>
-    </head>
-    <body>
-        <h1>Edit Advocate Profile</h1>
+<% layout('layouts/boilerplate.ejs') %>
+<h1>Edit Advocate Profile</h1>
 
-        <form action="/advocates/<%= advocate._id %>?_method=PUT" method="POST">
-            <div>
-                <label for="name">Name</label>
-                <input
-                    type="text"
-                    id="name"
-                    name="advocate[name]"
-                    value="<%= advocate.name %>"
-                />
-                <label for="location">Location</label>
-                <input
-                    type="text"
-                    id="location"
-                    name="advocate[location]"
-                    value="<%= advocate.location %>"
-                />
-                <label for="speciality">Speciality</label>
-                <input
-                    type="text"
-                    id="speciality"
-                    name="advocate[speciality]"
-                    value="<%= advocate.speciality %>"
-                />
-                <label for="experience">Experience</label>
-                <input
-                    type="text"
-                    id="experience"
-                    name="advocate[experience]"
-                    value="<%= advocate.experience %>"
-                />
-                <label for="email">E-Mail</label>
-                <input
-                    type="text"
-                    id="email"
-                    name="advocate[email]"
-                    value="<%= advocate.email %>"
-                />
-                <button>Update Advocate</button>
-            </div>
-        </form>
-        <a href="/advocates/<%= advocate._id %>"
+<form
+    class="container d-flex flex-column align-items-start"
+    action="/advocates/<%= advocate._id %>?_method=PUT"
+    method="POST"
+>
+    <label class="form-label" for="name">Name</label>
+    <input
+        class="form-control mb-2"
+        type="text"
+        id="name"
+        name="advocate[name]"
+        value="<%= advocate.name %>"
+    />
+    <label class="form-label" for="location">Location</label>
+    <input
+        class="form-control mb-2"
+        type="text"
+        id="location"
+        name="advocate[location]"
+        value="<%= advocate.location %>"
+    />
+    <label class="form-label" for="speciality">Speciality</label>
+    <input
+        class="form-control mb-2"
+        type="text"
+        id="speciality"
+        name="advocate[speciality]"
+        value="<%= advocate.speciality %>"
+    />
+    <label class="form-label" for="experience">Experience</label>
+    <input
+        class="form-control mb-2"
+        type="text"
+        id="experience"
+        name="advocate[experience]"
+        value="<%= advocate.experience %>"
+    />
+    <label class="form-label" for="email">E-Mail</label>
+    <input
+        class="form-control mb-2"
+        type="email"
+        id="email"
+        name="advocate[email]"
+        value="<%= advocate.email %>"
+    />
+    <div class="d-flex align-items-center justify-content-between mt-3">
+        <button class="btn btn-warning">Update Advocate</button>
+        <a class="btn btn-dark" href="/advocates/<%= advocate._id %>"
             >Back to <%= advocate.name %>'s Profile</a
         >
-    </body>
-</html>
+    </div>
+</form>
