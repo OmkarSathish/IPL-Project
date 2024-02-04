@@ -35,13 +35,22 @@
             </div>
             <div class="mb-2">
                 <label class="form-label" for="speciality">Speciality</label>
-                <input
-                    type="text"
+                <select
                     id="speciality"
                     name="advocate[speciality]"
-                    class="form-control mb-2"
+                    class="form-select mb-2"
                     required
-                />
+                >
+                    <option value="" disabled selected>
+                        Choose your speciality
+                    </option>
+                    <option value="Civil Law">Civil Law</option>
+                    <option value="Labour Law">Labour Law</option>
+                    <option value="Taxation Law">Taxation Law</option>
+                    <option value="Criminal Law">Criminal Law</option>
+                    <option value="Corporate Law">Corporate Law</option>
+                    <option value="Environmental Law">Environmental Law</option>
+                </select>
                 <div class="invalid-feedback">Please fill this field</div>
                 <div class="valid-feedback">Looks Good!</div>
             </div>

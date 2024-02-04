@@ -35,15 +35,23 @@
     </div>
     <div class="w-75 mb-2">
         <label class="form-label" for="speciality">Speciality</label>
-        <input
-            class="form-control mb-2"
-            type="text"
+        <select
             id="speciality"
             name="advocate[speciality]"
-            value="<%= advocate.speciality %>"
+            class="form-select mb-2"
             required
-        />
-        <div class="invalid-feedback">Please fill this fiels</div>
+        >
+            <option value="<%= advocate.speciality %>" disabled selected>
+                <%= advocate.speciality %>
+            </option>
+            <option value="Civil Law">Civil Law</option>
+            <option value="Labour Law">Labour Law</option>
+            <option value="Taxation Law">Taxation Law</option>
+            <option value="Criminal Law">Criminal Law</option>
+            <option value="Corporate Law">Corporate Law</option>
+            <option value="Environmental Law">Environmental Law</option>
+        </select>
+        <div class="invalid-feedback">Please fill this field</div>
         <div class="valid-feedback">Looks Good!</div>
     </div>
     <div class="w-75 mb-2">
@@ -67,6 +75,19 @@
             id="email"
             name="advocate[email]"
             value="<%= advocate.email %>"
+            required
+        />
+        <div class="invalid-feedback">Please fill this fiels</div>
+        <div class="valid-feedback">Looks Good!</div>
+    </div>
+    <div class="w-75 mb-2">
+        <label class="form-label" for="image">Image Url</label>
+        <input
+            class="form-control mb-2"
+            type="text"
+            id="image"
+            name="advocate[image]"
+            value="<%= advocate.image %>"
             required
         />
         <div class="invalid-feedback">Please fill this fiels</div>

@@ -17,10 +17,6 @@ const getAllAdvocates = catchAsync(async (req, res) => {
 const getAdvocate = catchAsync(async (req, res) => {
     const { id } = req.params;
     const advocate = await Advocate.findById(id);
-    // if (!advocate) {
-    //     res.status(400);
-    //     throw new Error(`Advocate with id: ${id} doesn't exist!`);
-    // }
     res.status(200).render("advocate/show", { advocate });
 });
 
@@ -32,9 +28,6 @@ const addAdvocate = catchAsync((req, res) => {
 });
 
 const saveNewAdvocate = catchAsync(async (req, res) => {
-    if (!req.body.advocate) {
-        throw new ExpressError("Insufficient Data", 400);
-    }
     const advocate = new Advocate(req.body.advocate);
     await advocate.save();
     res.redirect(`/advocates/${advocate._id}`);
@@ -46,20 +39,12 @@ const saveNewAdvocate = catchAsync(async (req, res) => {
 const editAdvocateProfile = catchAsync(async (req, res) => {
     const { id } = req.params;
     const advocate = await Advocate.findById(id);
-    // if (!advocate) {
-    //     res.status(400);
-    //     throw new Error(`Advocate with id: ${id} doesn't exist!`);
-    // }
     res.status(200).render("advocate/edit", { advocate });
 });
 
 const reSaveAdvocateProfile = catchAsync(async (req, res) => {
     const { id } = req.params;
     const advocate = await Advocate.findById(id);
-    // if (!advocate) {
-    //     res.status(400);
-    //     throw new Error(`Advocate with id: ${id} doesn't exist!`);
-    // }
     await Advocate.findByIdAndUpdate(id, { ...req.body.advocate });
     res.redirect(`/advocates/${advocate._id}`);
 });
@@ -70,10 +55,6 @@ const reSaveAdvocateProfile = catchAsync(async (req, res) => {
 const deleteAdvocateProfile = catchAsync(async (req, res) => {
     const { id } = req.params;
     const advocate = await Advocate.findById(id);
-    // if (!advocate) {
-    //     res.status(400);
-    //     throw new Error(`Advocate with id: ${id} doesn't exist!`);
-    // }
     await Advocate.findByIdAndDelete(id);
     res.status(200).redirect("/advocates/all");
 });
