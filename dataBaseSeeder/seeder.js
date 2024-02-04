@@ -7,6 +7,7 @@ const { firstNames, lastNames, locations } = require("./generalResource");
 
 establishDBConnection();
 
+let count = 0;
 const randomPicker = (array) => {
     if (Array.isArray(array) && array.length > 0) {
         return array[Math.floor(Math.random() * array.length)];
@@ -38,16 +39,16 @@ function generateRandomRating() {
 async function generateRandomProfile() {
     const fName = randomPicker(firstNames);
     const lName = randomPicker(lastNames);
+    const lastChar = fName.charAt(fName.length - 1);
 
     const name = `${fName} ${lName}`;
-    const isPresent = await Advocate.findOne({ name }).exec();
-
-    const gender =
-        fName.endsWith("a") || fName.endsWith("e") || fName.endsWith("i")
-            ? "f"
-            : "m";
+    const isPresent = await Advocate.findOne({ name });
 
     if (!isPresent) {
+        const gender =
+            lastChar === "a" || lastChar === "e" || lastChar === "i"
+                ? "f"
+                : "m";
         const email = `${fName.toLowerCase()}${lName.toLowerCase()}@gmail.com`;
         const image =
             gender === "f"
@@ -67,6 +68,7 @@ async function generateRandomProfile() {
 
         console.log(`Created: ${newAdvocateProfile.name}`);
         await newAdvocateProfile.save();
+        count++;
     }
 }
 
@@ -77,9 +79,11 @@ const seederFunction = async () => {
             await generateRandomProfile();
         }
     } catch (error) {
-        console.error("Error while seeding data:", error);
+        console.error(error);
     } finally {
-        console.log("Hit Ctl+C");
+        console.log(
+            `${mongoose.connection.name} impregnated with ${count} Documents [Hit Ctl+C]`
+        );
     }
 };
 
