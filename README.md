@@ -5,6 +5,7 @@
 - HTML5
 - CSS3
 - BootStrap5
+- TailwindCSS
 - JavaScript
 - NodeJS
 - MongoDB
@@ -12,11 +13,12 @@
 ### JavaScript Libraries Used:
 - Express
 - Mongoose
+- method-override
 - JOI
 - ejs
 - ejs-mate
 ---
-Images of the Prototype:
+### Images of the Prototype:
 - route: advocates/all (Index of all the advocates registered on the platform)
 ![image](https://github.com/OmkarSathish/IPL-Project/assets/138119012/f3c807c8-bc39-478e-b850-07706570cd5b)
 - route: advocates/:id (Viewing a particular Advocate's Profile)
