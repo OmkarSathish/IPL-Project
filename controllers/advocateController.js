@@ -7,6 +7,9 @@ const ExpressError = require("../middlewares/ExpressError");
 // @desc shows all advocates
 // @access PUBLIC
 const getAllAdvocates = catchAsync(async (req, res) => {
+    // const { page, limit } = req.query;
+    // const startIndex = (page - 1) * limit;
+    // const endIndex = page * limit;
     const advocates = await Advocate.find({});
     res.status(200).render("advocate/index", { advocates });
 });

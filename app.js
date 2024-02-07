@@ -23,6 +23,10 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use("/advocates", require("./routes/advocateRoutes.js"));
 
+app.get("/", (req, res) => {
+    res.send("./frontend/index.html");
+});
+
 app.all("*", (req, res, next) => {
     next(new ExpressError("Page Not Found", 404));
 });
@@ -35,6 +39,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", { err });
 });
 
-app.listen(3000, () => {
-    console.log(`Serving on http://localhost:${port}/advocates/all`);
+app.listen(port, () => {
+    console.log(`Serving on http://localhost:${8080}/advocates/all`);
 });

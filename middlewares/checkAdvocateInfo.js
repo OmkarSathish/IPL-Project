@@ -1,4 +1,4 @@
-const advocateJOISchema = require("../models/advocateJOISchema");
+const advocateJOISchema = require("../models/JOI/advocateJOISchema");
 const ExpressError = require("./ExpressError");
 
 const checkAdvocateInfo = (req, res, next) => {
