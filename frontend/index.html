@@ -1,50 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Project</title>
-        <link rel="shortcut icon" href="./imgs/icon.jpeg" type="image/x-icon" />
-        <link rel="stylesheet" href="./css/main.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap demo</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule=""
+            src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.js"
+        ></script>
     </head>
     <body>
-        <!-- Pre Nav-bar Section -->
-        <section
-            class="w-[90%] py-4 mx-auto flex items-center justify-between bg-slate-100"
-        >
-            <div class="flex items-center gap-2 justify-center">
-                <img
-                    class="w-20"
-                    src="./imgs/indianGovLogo.svg"
-                    alt="Indian Government Logo"
-                />
-                <div>
-                    <h5 class="text-2xl">न्याय विभाग</h5>
-                    <h5 class="uppercase font-semibold text-2xl">
-                        department of justice
+        <!-- <main class="hero"> -->
+        <!-- Header Section -->
+        <!-- <header class="header container">
+                <div class="header-left">
+                    <img
+                        src="./imgs/indianGovLogo.svg"
+                        alt="Indian Government Logo"
+                    />
+                    <div>
+                        <h5 class="header-left-text">न्याय विभाग</h5>
+                        <h5 class="header-left-text">Department of Justice</h5>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <img
+                        src="./imgs/g20Logo.png"
+                        alt="India led 2023 G20 Logo"
+                    />
+                    <img
+                        src="./imgs/75thIndependence.png"
+                        alt="Logo of India's 75th Independence Celebration Logo"
+                    />
+                </div>
+            </header> -->
+        <!-- Header Section -->
+
+        <!-- Nav Bar -->
+        <!-- <nav class="nav-bar container">
+                <ul class="nav-list-left">
+                    <li class="nav-link">
+                        <a href="/advocates/all" class="nav-item">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            Advocates</a
+                        >
+                    </li>
+                    <li class="nav-link">
+                        <a href="/notaries/all" class="nav-item">
+                            <ion-icon name="people-outline"></ion-icon>
+                            Notaries</a
+                        >
+                    </li>
+                    <li class="nav-link">
+                        <a href="/docWriters/all" class="nav-item">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                            Document Writers</a
+                        >
+                    </li>
+                </ul>
+
+                <ul class="nav-list-right">
+                    <li class="nav-link">
+                        <a href="#moreInfo" class="nav-item">
+                            <ion-icon name="add-circle-outline"></ion-icon>Know
+                            More</a
+                        >
+                    </li>
+                    <li class="nav-link">
+                        <a href="/jobCards" class="nav-item">
+                            <ion-icon name="search-outline"></ion-icon>
+                            Find</a
+                        >
+                    </li>
+                </ul>
+            </nav> -->
+        <!-- Nav Bar -->
+
+        <!-- Carousel Section -->
+        <!-- <section class="filler container"></section> -->
+        <!-- <section class="carousel container">
+                <div class="main-carousel">
+                    <img
+                        class="carousel-slide"
+                        src="./tools/imgs/carousel1.png"
+                        alt="Digitalization and its impact on Indian Judicial System NEWS article image"
+                    />
+
+                    <img
+                        class="carousel-slide"
+                        src="https://placehold.co/1000x500"
+                        alt=""
+                    />
+                    <img
+                        class="carousel-slide"
+                        src="https://placehold.co/1000x500"
+                        alt=""
+                    />
+                    <img
+                        class="carousel-slide"
+                        src="https://placehold.co/1000x500"
+                        alt=""
+                    />
+                    <button class="carousel-nav-left" onclick="showPrevious()">
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>
+                    <button class="carousel-nav-right" onclick="showNext()">
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
+                </div>
+            </section> -->
+        <!-- Carousel Section -->
+        <!-- </main> -->
+
+        <section class="cta-sec container section-divider">
+            <h5 class="cta-primary-heading">Client Reviews</h5>
+            <div class="review-grid">
+                <div class="card">
+                    <h5 class="client">
+                        <div class="client-img">
+                            <img
+                                class="client-img"
+                                src="https://placehold.co/100X100"
+                                alt=""
+                            />
+                        </div>
+                        <p class="client-name">
+                            Pranav S P <br />
+                            <span>Bengaluru, Karnataka</span>
+                        </p>
                     </h5>
+                    <blockquote class="review-text">
+                        "Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Officiis ut iure minus beatae rerum ab ad quod
+                        suscipit blanditiis repellat quis laborum, nemo vitae
+                        porro."
+                    </blockquote>
+                </div>
+                <div class="card">
+                    <h5 class="client">
+                        <div class="client-img">
+                            <img
+                                class="client-img"
+                                src="https://placehold.co/100X100"
+                                alt=""
+                            />
+                        </div>
+                        <p class="client-name">
+                            Pavan K R <br />
+                            <span>Kollur, Chikkamagaluru</span>
+                        </p>
+                    </h5>
+                    <blockquote class="review-text">
+                        "Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Officiis ut iure minus beatae rerum ab ad quod
+                        suscipit blanditiis repellat quis laborum, nemo vitae
+                        porro."
+                    </blockquote>
+                </div>
+                <div class="card">
+                    <h5 class="client">
+                        <div class="client-img">
+                            <img
+                                class="client-img"
+                                src="https://placehold.co/100X100"
+                                alt=""
+                            />
+                        </div>
+                        <p class="client-name">
+                            Nischal R Reddy<br />
+                            <span>Hyderabad, Telangana</span>
+                        </p>
+                    </h5>
+                    <blockquote class="review-text">
+                        "Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Officiis ut iure minus beatae rerum ab ad quod
+                        suscipit blanditiis repellat quis laborum, nemo vitae
+                        porro."
+                    </blockquote>
+                </div>
+                <div class="card">
+                    <h5 class="client">
+                        <div class="client-img">
+                            <img
+                                class="client-img"
+                                src="https://placehold.co/100X100"
+                                alt=""
+                            />
+                        </div>
+                        <p class="client-name">
+                            Ranjith J M<br />
+                            <span>Cassandra, Tumkur</span>
+                        </p>
+                    </h5>
+                    <blockquote class="review-text">
+                        "Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Officiis ut iure minus beatae rerum ab ad quod
+                        suscipit blanditiis repellat quis laborum, nemo vitae
+                        porro."
+                    </blockquote>
                 </div>
             </div>
-            <div class="flex items-center justify-center gap-5">
-                <img
-                    class="w-[70%]"
-                    src="./imgs/g20Logo.png"
-                    alt="India lead 2023 G20 Logo"
-                /><img
-                    class="w-[70%]"
-                    src="./imgs/75thIndependence.png"
-                    alt="Logo of India's 75th Independence Celebration"
-                />
-            </div>
         </section>
-        <!-- Pre Nav-bar Section -->
-
-        <!-- Nav-Bar Section -->
-        <nav class="w-[90%] py-4 mx-auto flex items-center justify-around gap-5 bg-slate-100">
-            <a class="text-lg font-normal uppercase" href="/advocates/all">Advocates</a>
-            <a class="text-lg font-normal uppercase" href="#">Notaries</a>
-            <a class="text-lg font-normal uppercase" href="#">Document Writers</a>
-        </nav>
-        <!-- Nav-Bar Section -->
+        <script src="./script.js"></script>
     </body>
 </html>

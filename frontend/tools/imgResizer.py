@@ -1,23 +1,18 @@
-from PIL import Image
 import os
+from PIL import Image
 
 def resize_image(input_path, output_path, target_width, target_height):
-    # Open the image file
     img = Image.open(input_path)
+    resized_image = img.resize((target_width, target_height))
+    resized_image.save(output_path)
 
-    # Resize the image
-    resized_img = img.resize((target_width, target_height))
-
-    # Save the resized image
-    resized_img.save(output_path)
-
-# Example usage
-script_directory = os.path.dirname(os.path.realpath(__file__))
-input_image_path = os.path.join(script_directory, "rawImgs", "carousel1.jpg").replace("\\\\", "\\")
-output_directory = os.path.join(script_directory, "resizedImgs")
-output_image_filename = "carousel1.jpg"
-output_image_path = os.path.join(output_directory, output_image_filename)
+script_dir = os.path.dirname(os.path.realpath(__file__))
+input_img_path = os.path.join(script_dir, "rawImgs", "carousel4.png")
+output_dir = os.path.join(script_dir, "imgs")
+output_img_file = "carousel4.png"
+output_img_path = os.path.join(output_dir, output_img_file)
 
 print("Current working directory:", os.getcwd().replace("\\\\", "\\"))
+print(output_img_path, input_img_path)
 
-resize_image(input_image_path, output_image_path, 1000, 500)
+resize_image(input_img_path, output_img_path, 1000, 500)

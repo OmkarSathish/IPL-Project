@@ -1,3 +1,4 @@
+const cors = require("cors");
 const ejs = require("ejs");
 const path = require("path");
 const express = require("express");
@@ -14,8 +15,17 @@ establishDBConnection();
 const app = express();
 const port = process.env.PORT || 5001;
 
+app.use(cors());
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "frontend")));
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -24,7 +34,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/advocates", require("./routes/advocateRoutes.js"));
 
 app.get("/", (req, res) => {
-    res.send("./frontend/index.html");
+    res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 app.all("*", (req, res, next) => {
@@ -40,5 +50,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`Serving on http://localhost:${8080}/advocates/all`);
+    console.log(`Serving on http://localhost:${port}`);
 });
