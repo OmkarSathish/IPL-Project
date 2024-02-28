@@ -8,8 +8,8 @@ const notaryModel = new Schema({
     email: String,
     location: String,
     experience: Number,
-    rating: Number,
     image: String,
+    reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
 });
 
-module.exports = mongoose.model('Notary', notaryModel)
+module.exports = mongoose.model("Notary", notaryModel);

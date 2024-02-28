@@ -4,7 +4,7 @@ const dotenv = require("dotenv").config();
 const establishDBConnection = async () => {
     try {
         await mongoose.connect(
-            process.env.DATABASE
+            "mongodb+srv://admin:admin@omkarsathish.6pvumep.mongodb.net/IPL_Project?retryWrites=true&w=majority&appName=omkarSathish"
         );
         console.log(`${mongoose.connection.name} DataBase Connected!`);
     } catch (e) {

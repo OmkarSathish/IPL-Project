@@ -5,7 +5,6 @@ const firstNames = [
     "Anjali",
     "Arjun",
     "Riya",
-    ,
     "Nisha",
     "Rajesh",
     "Kavya",

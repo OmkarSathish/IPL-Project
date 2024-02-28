@@ -16,13 +16,14 @@
                 %>
             </p>
             <p>
-                <span class="text-muted">Rating: </span><%= advocate.rating %>
+                <span class="text-muted rating">Rating: </span>
             </p>
             <p>
                 <span class="text-muted">Experience: </span><%=
                 advocate.experience %>+ Years
             </p>
             <p><span class="text-muted">E-Mail: </span><%= advocate.email %></p>
+            <% if( currentUser && advocate.author && advocate.author.equals(currentUser._id)) { %>
             <a
                 class="btn btn-primary w-100"
                 href="/advocates/<%= advocate._id %>/edit"
@@ -36,49 +37,77 @@
                     Delete Profile
                 </button>
             </form>
+            <% } %>
+            <p>
+                <span class="text-muted">Submitted By </span><%=
+                advocate.author.username %>
+            </p>
         </div>
     </div>
 
+    <% if (currentUser) { %>
+    <h2>Leave a Review</h2>
+    <form
+        action="/advocates/<%= advocate._id %>/reviews"
+        method="POST"
+        class="mb-3 needs-validation"
+        novalidate
+    >
+        <div class="mb-3">
+            <div class="mb-3"></div>
+            <div>
+                <label class="form-label" for="rating">Rating</label>
+                <input
+                    class="form-range"
+                    type="range"
+                    min="1"
+                    max="5"
+                    id="rating"
+                    name="review[rating]"
+                />
+            </div>
+            <div>
+                <label class="form-label" for="body">Review</label>
+                <textarea
+                    class="form-control"
+                    name="review[body]"
+                    id="body"
+                    cols="30"
+                    rows="3"
+                    required
+                ></textarea>
+                <div class="invalid-feedback">Please fill this field</div>
+                <div class="valid-feedback">Looks Good!</div>
+            </div>
+        </div>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    <% } %>
+
     <h1>Reviews</h1>
-    <ol class="list-group list-group-numbered w-50">
-        <li
-            class="list-group-item d-flex justify-content-between align-items-start"
-        >
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Client 1</div>
-                "<i class="text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maiores quibusdam odit labore non in laborum pariatur earum
-                    molestias fuga possimus? </i
-                >"
-            </div>
-            <span class="badge bg-primary rounded-pill">Rated: 5</span>
-        </li>
-        <li
-            class="list-group-item d-flex justify-content-between align-items-start"
-        >
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Client 2</div>
-                "<i class="text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cupiditate, assumenda? </i
-                >"
-            </div>
-            <span class="badge bg-primary rounded-pill">Rated: 4</span>
-        </li>
-        <li
-            class="list-group-item d-flex justify-content-between align-items-start"
-        >
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Client 3</div>
-                "<i class="text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Doloremque at quo, ex repellat tempora itaque! </i
-                >"
-            </div>
-            <span class="badge bg-primary round ed-pill">Rated: 4</span>
-        </li>
-    </ol>
+    <% for(let review of advocate.reviews) { %>
+    <div class="card mb-3" style="width: 18rem">
+        <div class="card-body">
+            <h5 class="card-title">Client</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rating: <%= review.rating %></li>
+                <li class="list-group-item">Review: <%= review.body %></li>
+                <li class="list-group-item">By: <%= review.author.username %></li>
+            <% if( currentUser && review.author && review.author.equals(currentUser._id)) { %>
+                <li class="list-group-item">
+                    <form
+                        action="/advocates/<%= advocate._id %>/reviews/<%= review._id %>?_method=DELETE"
+                        method="post"
+                    >
+                        <button class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <% } %>
+
     <div class="container d-flex justify-content-center">
         <a class="btn btn-dark" href="/advocates/all">Back</a>
     </div>

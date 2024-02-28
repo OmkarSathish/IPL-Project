@@ -183,13 +183,13 @@ body {
 }
 
 .carousel-slide {
-    position: absolute;
+    /* position: absolute; */
     background-color: #767676;
 
     transition: all .3s ease-in-out;
 }
 
-.carousel-nav-left,
+/* .carousel-nav-left,
 .carousel-nav-right {
     position: absolute;
     background-color: var(--color-primary-100);
@@ -209,9 +209,9 @@ body {
 .carousel-nav-right {
     top: 50%;
     right: 7.4%;
-}
+} */
 
-.carousel-nav-left:hover,
+/* .carousel-nav-left:hover,
 .carousel-nav-right:hover {
     background-color: var(--color-primary-300);
 }
@@ -219,14 +219,14 @@ body {
 .carousel-nav-left:active,
 .carousel-nav-right:active {
     background-color: var(--color-primary-500);
-}
+} */
 
-.filler {
+/* .filler {
     background-image: url("https://placehold.co/1000x500");
     height: calc(100vh - 16.6rem);
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
 .cta-sec {
     height: 100vh;

@@ -6,7 +6,6 @@ const Notary = require("../models/notaryModel");
 const {
     randomPicker,
     generateRandomAge,
-    generateRandomRating,
     generateRandomExperience,
     setImage,
 } = require("./utils");
@@ -29,7 +28,6 @@ async function generateRandomNotaryProfile() {
             email: `${fname.toLowerCase()}${lname.toLowerCase()}@gmail.com`,
             location: randomPicker(locations),
             age: generateRandomAge(),
-            rating: generateRandomRating(),
             experience: generateRandomExperience(),
             image: setImage(lastChar),
         });

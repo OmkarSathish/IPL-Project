@@ -7,7 +7,6 @@ const { firstNames, lastNames, locations } = require("./generalResource");
 const {
     randomPicker,
     generateRandomAge,
-    generateRandomRating,
     generateRandomExperience,
     setImage,
 } = require("./utils");
@@ -26,18 +25,14 @@ async function generateRandomProfile() {
     const isPresent = await Advocate.findOne({ name });
 
     if (!isPresent) {
-        const gender =
-            lastChar === "a" || lastChar === "e" || lastChar === "i"
-                ? "f"
-                : "m";
         const email = `${fName.toLowerCase()}${lName.toLowerCase()}@gmail.com`;
 
         const newAdvocateProfile = new Advocate({
             name,
+            author: "65de2fa4276f359c3b46b4fd",
             age: generateRandomAge(),
             experience: generateRandomExperience(),
             email,
-            rating: generateRandomRating(),
             image: setImage(lastChar),
             speciality: randomPicker(lawSpecialties.lawSpecailities),
             location: randomPicker(locations),
